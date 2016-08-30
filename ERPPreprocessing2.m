@@ -12,7 +12,29 @@ eeglab redraw
 %compute averaged ERPs
 %ERP = pop_averager( ALLEEG , 'Criterion', 'good', 'DSindex',  4, 'ExcludeBoundary', 'on', 'SEM', 'on' );
 
-%% ERP DT
+%% cold DT
+%contra-ipsi step 1
+ERP = pop_binoperator( ERP, {  'prepareContraIpsi',  'Lch = [ 1 3:5 7 6 8:10 12 11 14:16]',  'Rch = [ 32 30 31 27 29 28 25 26 21 23 22 19 20 18]',...
+  'nbin1 = 0.5*bin2@Rch + 0.5*bin1@Lch label TargetMatch Contra',  'nbin2 = 0.5*bin2@Lch + 0.5*bin1@Rch label TargetMatch Ipsi',...
+  '# For creating contra-minus-ipsi waveforms from the bins above,',  '# run (only) the formulas described here below in a second call',...
+  '# of "ERP binoperator" (remove the # symbol before run them)',  '#bin3 = bin1 - bin2 label TargetMatch Contra-Ipsi'});
+
+%contra-ipsi step 2
+ERP = pop_binoperator( ERP, {  'bin3 = bin1 - bin2 label TargetMatch Contra-Ipsi'});
+
+%create averaged sites for DT
+ERP = pop_erpchanoperator( ERP, {  'ch35 = (ch14 + ch15 + ch16)/3 label Average Occipital Parietal'} , 'ErrorMsg', 'popup', 'Warning', 'on' );
+
+%save ERPset and EEGset!
+eeglab redraw
+
+%% plot DT
+
+ERP = pop_ploterps( ERP,  1:3,  35 , 'AutoYlim', 'on', 'Axsize', [ 0.05 0.08], 'BinNum', 'on', 'Blc', 'pre', 'Box', [ 1 1], 'ChLabel', 'on',...
+ 'FontSizeChan',  10, 'FontSizeLeg',  12, 'FontSizeTicks',  10, 'LegPos', 'bottom', 'Linespec', {'k-' , 'r-' , 'b-' }, 'LineWidth',  3,...
+ 'Maximize', 'on', 'Position', [ 89.6667 20.3077 106.833 31.9231], 'Style', 'Classic', 'Tag', 'ERP_figure', 'Transparency',  0, 'xscale',...
+ [ -200.0 798.0   -200:200:600 ], 'YDir', 'normal' );
+%% emotional ERP DT
 %contra-ipsi step 1
 ERP = pop_binoperator( ERP, {  'prepareContraIpsi',  'Lch = [ 1 3:5 7 6 8:10 12 11 14:16]',  'Rch = [ 32 30 31 27 29 28 25 26 21 23 22 19 20 18]',...
   'nbin1 = 0.5*bin1@Rch + 0.5*bin2@Lch label Angry Contra',  'nbin2 = 0.5*bin1@Lch + 0.5*bin2@Rch label Angry Ipsi',...
@@ -27,6 +49,7 @@ ERP = pop_binoperator( ERP, {  'bin5 = bin1 - bin2 label Angry Contra-Ipsi',  'b
 ERP = pop_erpchanoperator( ERP, {  'ch35 = (ch14 + ch15 + ch16)/3 label Average Occipital Parietal'} , 'ErrorMsg', 'popup', 'Warning', 'on' );
 
 %save ERPset and EEGset!
+eeglab redraw
 
 %% plot eDT 
 
