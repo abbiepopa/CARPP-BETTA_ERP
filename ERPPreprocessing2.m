@@ -12,6 +12,20 @@ eeglab redraw
 %compute averaged ERPs
 %ERP = pop_averager( ALLEEG , 'Criterion', 'good', 'DSindex',  4, 'ExcludeBoundary', 'on', 'SEM', 'on' );
 
+%% GNG
+%avg anterior lateral sites
+ERP = pop_erpchanoperator( ERP, {  'ch35 = (ch3 + ch2 + ch30 + ch8 + ch24 + ch25 + ch14 + ch13 + ch19) / 9 label Average Anterior Sites'} ,...
+ 'ErrorMsg', 'popup', 'Warning', 'on' );
+
+eeglab redraw
+
+%% Plot GNG
+
+ERP = pop_ploterps( ERP, [ 1 2],  35 , 'AutoYlim', 'on', 'Axsize', [ 0.05 0.08], 'BinNum', 'on', 'Blc', 'pre', 'Box', [ 1 1], 'ChLabel', 'on',...
+ 'FontSizeChan',  10, 'FontSizeLeg',  12, 'FontSizeTicks',  10, 'LegPos', 'bottom', 'Linespec', {'r-' , 'g-' }, 'LineWidth',  3, 'Maximize',...
+ 'on', 'Position', [ 100.476 25.456 106.857 31.9286], 'Style', 'Classic', 'Tag', 'ERP_figure', 'Transparency',  0, 'xscale',...
+ [ -200.0 798.0   -200:200:600 ], 'YDir', 'normal' );
+
 %% cold DT
 %contra-ipsi step 1
 ERP = pop_binoperator( ERP, {  'prepareContraIpsi',  'Lch = [ 1 3:5 7 6 8:10 12 11 14:16]',  'Rch = [ 32 30 31 27 29 28 25 26 21 23 22 19 20 18]',...
