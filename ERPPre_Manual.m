@@ -1,3 +1,5 @@
+%ADDED to PreProc1 on August 31, 2016!!!
+
 %rereferenceing, do on both ICA and non ICA versions
 EEG = pop_eegchanoperator( EEG, {  'nch1 = ch1 - ( (ch10 + ch21)/2 ) Label Fp1',  'nch2 = ch2 - ( (ch10 + ch21)/2 ) Label Fz',...
   'nch3 = ch3 - ( (ch10 + ch21)/2 ) Label F3',  'nch4 = ch4 - ( (ch10 + ch21)/2 ) Label F7',  'nch5 = ch5 - ( (ch10 + ch21)/2 ) Label FT9',...
@@ -60,8 +62,11 @@ EEG  = pop_artblink( EEG , 'Blinkwidth',  400, 'Channel',  34, 'Crosscov',  0.7,
 EEG  = pop_artstep( EEG , 'Channel',  33, 'Flag', [ 1 3], 'Threshold',  100, 'Twindow', [ -200 200], 'Windowsize',  200, 'Windowstep',...
   50 );
 
-%export e-list manually
+EEG = pop_exporteegeventlist( EEG , 'Filename',...
+ 'elist_art.txt' );
+
 %save file manually
 %open ICA pruned file
-%import elist
 eeglab redraw
+
+

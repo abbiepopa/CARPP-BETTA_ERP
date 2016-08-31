@@ -1,3 +1,7 @@
+% import elist
+EEG = pop_importeegeventlist( EEG, 'elist_art.txt' , 'ReplaceEventList',...
+ 'on' );
+
 % extract bin-based epochs
 EEG = pop_epochbin( EEG , [-200.0  800.0],  'pre');
 
