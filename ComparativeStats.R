@@ -99,3 +99,43 @@ all$cabil<-as.factor(all$cabil)
 library(nlme)
 
 fit<-lme(bin3_AverageAnteriorSites~task*Dx, random = ~1|cabil, data=all)
+
+#nice!
+# Linear mixed-effects model fit by REML
+ # Data: all 
+       # AIC      BIC   logLik
+  # 206.2204 224.9708 -95.1102
+
+# Random effects:
+ # Formula: ~1 | cabil
+        # (Intercept)  Residual
+# StdDev:   0.4837415 0.6314876
+
+# Fixed effects: bin3_AverageAnteriorSites ~ task * Dx 
+                          # Value Std.Error DF   t-value p-value
+# (Intercept)           0.9675766 0.2764350 46  3.500196  0.0010
+# taskeGNG_angry       -0.4471154 0.3153225 46 -1.417962  0.1629
+# taskeGNG_happy       -0.2272143 0.3092875 46 -0.734638  0.4663
+# Dx22q                -0.5868148 0.3276092 31 -1.791204  0.0830
+# taskeGNG_angry:Dx22q  0.9604487 0.3782242 46  2.539363  0.0146
+# taskeGNG_happy:Dx22q  0.6207322 0.3743426 46  1.658193  0.1041
+ # Correlation: 
+                     # (Intr) tskGNG_n tskGNG_h Dx22q  tskGNG_n:D22
+# taskeGNG_angry       -0.613                                      
+# taskeGNG_happy       -0.601  0.529                               
+# Dx22q                -0.844  0.518    0.507                      
+# taskeGNG_angry:Dx22q  0.511 -0.834   -0.441   -0.601             
+# taskeGNG_happy:Dx22q  0.496 -0.437   -0.826   -0.587  0.521      
+
+# Standardized Within-Group Residuals:
+       # Min         Q1        Med         Q3        Max 
+# -1.3529778 -0.5444016 -0.1836715  0.3128958  2.9559955 
+
+# Number of Observations: 83
+# Number of Groups: 33 
+
+#anxious kids have larger N2, could be when in an anxious state bigger N2
+#also note trend for smaller N2 in 22q to begin with
+
+#test of happy versus angry
+# taskeGNG_happy:Dx22q -0.3398726 0.3666871 47 -0.9268736  0.3587
