@@ -1,6 +1,6 @@
 %generage nogo minus go ERP
 ERP = pop_binoperator( ERP, {  'BIN3 = BIN1 - BIN2 label NoGo_Minus_Go'});
-
+eeglab redraw
 %% measure negative AUC
 %measure negative AUC, do on all sets once subtraction has been made,
 %saving here for settings not to run
