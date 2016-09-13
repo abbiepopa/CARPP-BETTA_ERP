@@ -39,4 +39,63 @@ colnames(out)<-c("task", "Dx", "mean", "se", "n")
 
 write.csv(out, "eGNG_angry_out.csv", row.names=F)
 
+#eGNG happy
+
+eGNG_happy_22q<-read.table("eGNG_happy_measures_22q.txt", header=T)
+eGNG_happy_TD<-read.table("eGNG_happy_measures_TD.txt", header=T)
+
+
+t.test(eGNG_happy_22q$bin3_AverageAnteriorSites, eGNG_happy_TD$bin3_AverageAnteriorSites)
+
+out<-data.frame(
+	task<-c("eGNG_happy","eGNG_happy"), 
+	Dx<-c("22q","TD"), 
+	means<-c(mean(eGNG_happy_22q$bin3_AverageAnteriorSites),mean(eGNG_happy_TD$bin3_AverageAnteriorSites)), 
+	ses<-c((sd(eGNG_happy_22q$bin3_AverageAnteriorSites)/sqrt(dim(eGNG_happy_22q)[1])), (sd(eGNG_happy_TD$bin3_AverageAnteriorSites)/sqrt(dim(eGNG_happy_TD)[1]))), 
+	ns<-c(dim(eGNG_happy_22q)[1], dim(eGNG_happy_TD)[1])
+	)		
+
+colnames(out)<-c("task", "Dx", "mean", "se", "n")
+
+write.csv(out, "eGNG_happy_out.csv", row.names=F)
+
 ###lme with participant as a random effect, also with Dx together (and effect of Dx) and separate
+
+rm(list = c("Dx","means","ns","out","ses","task"))
+
+eGNG_angry_22q$task<-"eGNG_angry"
+eGNG_angry_TD$task<-"eGNG_angry"
+
+eGNG_happy_22q$task<-"eGNG_happy"
+eGNG_happy_TD$task<-"eGNG_happy"
+
+GNG_22q$task<-"GNG"
+GNG_TD$task<-"GNG"
+
+eGNG_angry_22q$Dx<-"22q"
+eGNG_happy_22q$Dx<-"22q"
+GNG_22q$Dx<-"22q"
+
+eGNG_angry_TD$Dx<-"TD"
+eGNG_happy_TD$Dx<-"TD"
+GNG_TD$Dx<-"TD"
+
+all<-rbind(eGNG_angry_22q,eGNG_angry_TD,eGNG_happy_22q,eGNG_happy_TD,GNG_22q,GNG_TD)
+
+all[which(all$Dx == "TD"), "Dx"]<-"1td"
+all[which(all$task == "GNG"), "task"]<-"1GNG"
+
+all$Dx<-as.factor(all$Dx)
+all$task<-as.factor(all$task)
+all$ERPset<-as.character(all$ERPset)
+
+cabilid<-function(rawr){
+	return(substr(rawr, start = (nchar(rawr)-2), stop = nchar(rawr)))
+}
+
+all$cabil<-unlist(lapply(all$ERPset, cabilid))
+all$cabil<-as.factor(all$cabil)
+
+library(nlme)
+
+fit<-lme(bin3_AverageAnteriorSites~task*Dx, random = ~1|cabil, data=all)
