@@ -2,10 +2,11 @@
 EEG = pop_resample(EEG, 500);
 
 %Add channel location
-EEG=pop_chanedit(EEG,'lookup', '/Users/abbiepopa/Documents/MATLAB/eeglab13_4_4b/plugins/dipfit2.3/standard_BESA/standard-10-5-cap385.elp');
+%EEG=pop_chanedit(EEG,'lookup', '/Users/abbiepopa/Documents/MATLAB/eeglab13_4_4b/plugins/dipfit2.3/standard_BESA/standard-10-5-cap385.elp');
 %EEG=pop_chanedit(EEG,'lookup', '/Users/minderplab/Desktop/EEGlab/eeglab13_5_4b/plugins/dipfit2.3/standard_BESA/standard-10-5-cap385.elp');
 %EEG=pop_chanedit(EEG,'lookup', 'C:\Users\MIND\Documents\MATLAB\eeglab13_4_4b\plugins\dipfit2.3\standard_BESA\standard-10-5-cap385.elp');
 %EEG=pop_chanedit(EEG,'lookup', '/Users/MIND/Documents/MATLAB/eeglab13_4_4b/plugins/dipfit2.3/standard_BESA/standard-10-5-cap385.elp');
+EEG=pop_chanedit(EEG,'lookup', '/Users/cabil/Documents/MATLAB/eeglab13_4_4b/plugins/dipfit2.3/standard_BESA/standard-10-5-cap385.elp');
 
 %Filter, High pass 0.1, Low pass 30
 EEG  = pop_basicfilter( EEG,  1:34 , 'Boundary', 'boundary', 'Cutoff', [ 0.1 30], 'Design', 'butter', 'Filter', 'bandpass', 'Order',  2,...
@@ -30,7 +31,8 @@ EEG = pop_eegchanoperator( EEG, {  'nch1 = ch1 - ( (ch10 + ch21)/2 ) Label Fp1',
  'on' );
 
 %Add channel location do on both versions
-EEG=pop_chanedit(EEG,'lookup', '/Users/abbiepopa/Documents/MATLAB/eeglab13_4_4b/plugins/dipfit2.3/standard_BESA/standard-10-5-cap385.elp');
+%EEG=pop_chanedit(EEG,'lookup', '/Users/abbiepopa/Documents/MATLAB/eeglab13_4_4b/plugins/dipfit2.3/standard_BESA/standard-10-5-cap385.elp');
 %EEG=pop_chanedit(EEG,'lookup', '/Users/minderplab/Desktop/EEGlab/eeglab13_5_4b/plugins/dipfit2.3/standard_BESA/standard-10-5-cap385.elp');
 %EEG=pop_chanedit(EEG,'lookup', 'C:\Users\MIND\Documents\MATLAB\eeglab13_4_4b\plugins\dipfit2.3\standard_BESA\standard-10-5-cap385.elp');
 %EEG=pop_chanedit(EEG,'lookup', '/Users/MIND/Documents/MATLAB/eeglab13_4_4b/plugins/dipfit2.3/standard_BESA/standard-10-5-cap385.elp');
+EEG=pop_chanedit(EEG,'lookup', '/Users/cabil/Documents/MATLAB/eeglab13_4_4b/plugins/dipfit2.3/standard_BESA/standard-10-5-cap385.elp');
