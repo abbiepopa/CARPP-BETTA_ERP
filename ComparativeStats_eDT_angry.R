@@ -1,85 +1,99 @@
 setwd("~/Documents/ERP Analyses/data")
 
-#cold DT
-DT_N2_22q<-read.table("DT_cold_measures_22q_N2PC.txt", header=T)
-DT_N2_TD<-read.table("DT_cold_measures_TD_N2PC.txt", header=T)
+###for happy replace angry with happy, ang with hap, and bini==5 with bini==6
 
-DT_PD_22q<-read.table("DT_cold_measures_22q_PD.txt", header=T)
-DT_PD_TD<-read.table("DT_cold_measures_TD_PD.txt", header=T)
+#angry
+ang_N2PC_22q<-read.table("eDT_angry_measures_22q_N2PC_corr.txt", header=T, sep="\t")
+ang_PD_22q<-read.table("eDT_angry_measures_22q_PD_corr.txt", header=T, sep="\t")
 
-DT_N2_22q$Dx<-"22q"
-DT_PD_22q$Dx<-"22q"
-DT_N2_TD$Dx<-"1td"
-DT_PD_TD$Dx<-"1td"
+ang_N2PC_TD<-read.table("eDT_angry_measures_TD_N2PC_corr.txt", header=T, sep="\t")
+ang_PD_TD<-read.table("eDT_angry_measures_TD_PD_corr.txt", header=T, sep="\t")
 
-DT_N2_22q$comp<-"N2PC"
-DT_PD_22q$comp<-"PD"
-DT_N2_TD$comp<-"N2PC"
-DT_PD_TD$comp<-"PD"
+###for now just focus on cases where angry is the target###
+ang_N2PC_22qa<-ang_N2PC_22q[which(ang_N2PC_22q$bini==5),]
+ang_PD_22qa<-ang_PD_22q[which(ang_PD_22q$bini==5),]
+ang_N2PC_TDa<-ang_N2PC_TD[which(ang_N2PC_TD$bini==5),]
+ang_PD_TDa<-ang_PD_TD[which(ang_PD_TD$bini==5),]
 
-DT<-rbind(DT_N2_22q, DT_N2_TD, DT_PD_22q, DT_PD_TD)
+ang_N2PC_22qa$Dx<-"22q"
+ang_PD_22qa$Dx<-"22q"
+ang_N2PC_TDa$Dx<-"1td"
+ang_PD_TDa$Dx<-"1td"
+
+ang_N2PC_22qa$Comp<-"N2PC"
+ang_PD_22qa$Comp<-"PD"
+ang_N2PC_TDa$Comp<-"N2PC"
+ang_PD_TDa$Comp<-"PD"
+
+angry_DT<-rbind(ang_N2PC_22qa, ang_PD_22qa, ang_N2PC_TDa, ang_PD_TDa)
 
 cabilid<-function(rawr){
 	return(substr(rawr, start = (nchar(rawr)-2), stop = nchar(rawr)))
 }
 
-DT$cabil<-unlist(lapply(as.character(DT$ERPset), cabilid))
-DT[which(DT$cabil == "_DT"), "cabil"]<-"308"
-DT[which(DT$cabil == "CI1"), "cabil"]<-"180"
 
-DT$cabil<-as.factor(DT$cabil)
+angry_DT$cabil<-unlist(lapply(as.character(angry_DT$ERPset), cabilid))
+angry_DT[which(angry_DT$cabil == "yDT"), "cabil"]<-"842"
+
+angry_DT$cabil<-as.factor(angry_DT$cabil)
 
 library(nlme)
 
-colnames(DT)[1]<-"erp"
-
-fit<-lme(erp~as.factor(Dx)*as.factor(comp), random = ~1|cabil, data=DT)
-#N2PC differs between 22q and TD (bigger in 22q)
-#difference between N2PC and PD differs, N2PC equivalent to PD in TD, not 22q
-
-DT_22q_N2PC_mean<-mean(DT[which(DT$Dx == "22q" & DT$comp == "N2PC"),"erp"])
-DT_22q_N2PC_sem<-sd(DT[which(DT$Dx == "22q" & DT$comp == "N2PC"),"erp"])/sqrt(dim(DT[which(DT$Dx == "22q" & DT$comp == "N2PC"),])[1])
-DT_22q_N2PC_n<-dim(DT[which(DT$Dx == "22q" & DT$comp == "N2PC"),])[1]
-
-DT_22q_PD_mean<-mean(DT[which(DT$Dx == "22q" & DT$comp == "PD"),"erp"])
-DT_22q_PD_sem<-sd(DT[which(DT$Dx == "22q" & DT$comp == "PD"),"erp"])/sqrt(dim(DT[which(DT$Dx == "22q" & DT$comp == "PD"),])[1])
-DT_22q_PD_n<-dim(DT[which(DT$Dx == "22q" & DT$comp == "PD"),])[1]
+fit<-lme(value~as.factor(Dx)*as.factor(Comp), random = ~1|cabil, data=angry_DT)
 
 
-DT_1td_N2PC_mean<-mean(DT[which(DT$Dx == "1td" & DT$comp == "N2PC"),"erp"])
-DT_1td_N2PC_sem<-sd(DT[which(DT$Dx == "1td" & DT$comp == "N2PC"),"erp"])/sqrt(dim(DT[which(DT$Dx == "1td" & DT$comp == "N2PC"),])[1])
-DT_1td_N2PC_n<-dim(DT[which(DT$Dx == "1td" & DT$comp == "N2PC"),])[1]
+angry_DT_22q_N2PC_mean<-mean(angry_DT[which(angry_DT$Dx == "22q" & angry_DT$Comp == "N2PC"),"value"])
+angry_DT_22q_N2PC_sem<-sd(angry_DT[which(angry_DT$Dx == "22q" & angry_DT$Comp == "N2PC"),"value"])/sqrt(dim(angry_DT[which(angry_DT$Dx == "22q" & angry_DT$Comp == "N2PC"),])[1])
+angry_DT_22q_N2PC_n<-dim(angry_DT[which(angry_DT$Dx == "22q" & angry_DT$Comp == "N2PC"),])[1]
 
-DT_1td_PD_mean<-mean(DT[which(DT$Dx == "1td" & DT$comp == "PD"),"erp"])
-DT_1td_PD_sem<-sd(DT[which(DT$Dx == "1td" & DT$comp == "PD"),"erp"])/sqrt(dim(DT[which(DT$Dx == "1td" & DT$comp == "PD"),])[1])
-DT_1td_PD_n<-dim(DT[which(DT$Dx == "1td" & DT$comp == "PD"),])[1]
+angry_DT_22q_PD_mean<-mean(angry_DT[which(angry_DT$Dx == "22q" & angry_DT$Comp == "PD"),"value"])
+angry_DT_22q_PD_sem<-sd(angry_DT[which(angry_DT$Dx == "22q" & angry_DT$Comp == "PD"),"value"])/sqrt(dim(angry_DT[which(angry_DT$Dx == "22q" & angry_DT$Comp == "PD"),])[1])
+angry_DT_22q_PD_n<-dim(angry_DT[which(angry_DT$Dx == "22q" & angry_DT$Comp == "PD"),])[1]
 
-DT_wide<-merge(DT[which(DT$comp == "N2PC"),], DT[which(DT$comp == "PD"),], by.x="cabil", by.y="cabil")
 
-DT_wide_trim<-DT_wide[,c("cabil","erp.x","Dx.x","erp.y")]
-colnames(DT_wide_trim)<-c("cabil","N2PC","Dx","PD")
-DT_wide_trim$ratio<-DT_wide_trim$PD/DT_wide_trim$N2PC
+angry_DT_1td_N2PC_mean<-mean(angry_DT[which(angry_DT$Dx == "1td" & angry_DT$Comp == "N2PC"),"value"])
+angry_DT_1td_N2PC_sem<-sd(angry_DT[which(angry_DT$Dx == "1td" & angry_DT$Comp == "N2PC"),"value"])/sqrt(dim(angry_DT[which(angry_DT$Dx == "1td" & angry_DT$Comp == "N2PC"),])[1])
+angry_DT_1td_N2PC_n<-dim(angry_DT[which(angry_DT$Dx == "1td" & angry_DT$Comp == "N2PC"),])[1]
 
-DT_wide_trim[which(DT_wide_trim$ratio>200), "ratio"]<-NA
+angry_DT_1td_PD_mean<-mean(angry_DT[which(angry_DT$Dx == "1td" & angry_DT$Comp == "PD"),"value"])
+angry_DT_1td_PD_sem<-sd(angry_DT[which(angry_DT$Dx == "1td" & angry_DT$Comp == "PD"),"value"])/sqrt(dim(angry_DT[which(angry_DT$Dx == "1td" & angry_DT$Comp == "PD"),])[1])
+angry_DT_1td_PD_n<-dim(angry_DT[which(angry_DT$Dx == "1td" & angry_DT$Comp == "PD"),])[1]
 
-DT_wide_trim1<-DT_wide_trim
-DT_wide_trim<-na.omit(DT_wide_trim)
+####weeee!!!!
 
-DT_22q_ratio_mean<-mean(DT_wide_trim[which(DT_wide_trim$Dx == "22q"), "ratio"], na.action=na.omit)
-DT_TD_ratio_mean<-mean(DT_wide_trim[which(DT_wide_trim$Dx == "1td"), "ratio"], na.action=na.omit)
+angry_DT_wide<-merge(angry_DT[which(angry_DT$Comp == "N2PC"),], angry_DT[which(angry_DT$Comp == "PD"),], by.x="cabil", by.y="cabil")
 
-DT_22q_ratio_n<-length(DT_wide_trim[which(DT_wide_trim$Dx == "22q"), "ratio"])
-DT_TD_ratio_n<-length(DT_wide_trim[which(DT_wide_trim$Dx == "1td"), "ratio"])
+angry_DT_wide_trim<-angry_DT_wide[,c("cabil","value.x","Dx.x","value.y")]
+colnames(angry_DT_wide_trim)<-c("cabil","N2PC","Dx","PD")
+angry_DT_wide_trim$ratio<-angry_DT_wide_trim$PD/angry_DT_wide_trim$N2PC
 
-DT_22q_ratio_sem<-sd(DT_wide_trim[which(DT_wide_trim$Dx == "22q"), "ratio"])/sqrt(DT_22q_ratio_n)
-DT_TD_ratio_sem<-sd(DT_wide_trim[which(DT_wide_trim$Dx == "1td"), "ratio"])/sqrt(DT_TD_ratio_n)
+angry_DT_wide_trim[which(angry_DT_wide_trim$ratio>200), "ratio"]<-NA
+
+angry_DT_wide_trim1<-angry_DT_wide_trim
+angry_DT_wide_trim<-na.omit(angry_DT_wide_trim)
+
+angry_DT_22q_ratio_mean<-mean(angry_DT_wide_trim[which(angry_DT_wide_trim$Dx == "22q"), "ratio"], na.action=na.omit)
+angry_DT_TD_ratio_mean<-mean(angry_DT_wide_trim[which(angry_DT_wide_trim$Dx == "1td"), "ratio"], na.action=na.omit)
+
+angry_DT_22q_ratio_n<-length(angry_DT_wide_trim[which(angry_DT_wide_trim$Dx == "22q"), "ratio"])
+angry_DT_TD_ratio_n<-length(angry_DT_wide_trim[which(angry_DT_wide_trim$Dx == "1td"), "ratio"])
+
+angry_DT_22q_ratio_sem<-sd(angry_DT_wide_trim[which(angry_DT_wide_trim$Dx == "22q"), "ratio"])/sqrt(angry_DT_22q_ratio_n)
+angry_DT_TD_ratio_sem<-sd(angry_DT_wide_trim[which(angry_DT_wide_trim$Dx == "1td"), "ratio"])/sqrt(angry_DT_TD_ratio_n)
 
 Dx_out<-c("22q","22q","TD","TD", "22q", "TD")
-comp_out<-c("N2PC","PD","N2PC","PD", "ratio","ratio")
-mean_out<-c(DT_22q_N2PC_mean, DT_22q_PD_mean, DT_1td_N2PC_mean, DT_1td_PD_mean, DT_22q_ratio_mean, DT_TD_ratio_mean)
-sem_out<-c(DT_22q_N2PC_sem, DT_22q_PD_sem, DT_1td_N2PC_sem, DT_1td_PD_sem, DT_22q_ratio_sem, DT_TD_ratio_sem)
-n_out<-c(DT_22q_N2PC_n, DT_22q_PD_n, DT_1td_N2PC_n, DT_1td_PD_n, DT_22q_ratio_n, DT_TD_ratio_n)
+Comp_out<-c("N2PC","PD","N2PC","PD", "ratio","ratio")
+mean_out<-c(angry_DT_22q_N2PC_mean, angry_DT_22q_PD_mean, angry_DT_1td_N2PC_mean, angry_DT_1td_PD_mean, angry_DT_22q_ratio_mean, angry_DT_TD_ratio_mean)
+sem_out<-c(angry_DT_22q_N2PC_sem, angry_DT_22q_PD_sem, angry_DT_1td_N2PC_sem, angry_DT_1td_PD_sem, angry_DT_22q_ratio_sem, angry_DT_TD_ratio_sem)
+n_out<-c(angry_DT_22q_N2PC_n, angry_DT_22q_PD_n, angry_DT_1td_N2PC_n, angry_DT_1td_PD_n, angry_DT_22q_ratio_n, angry_DT_TD_ratio_n)
 
-out<-data.frame(Dx_out, comp_out, mean_out, sem_out, n_out)
+out<-data.frame(Dx_out, Comp_out, mean_out, sem_out, n_out)
 
-write.csv(out, "DT_out.csv", row.names=F)
+t.test(angry_DT[which(angry_DT$Dx == "22q" & angry_DT$Comp == "N2PC"),"value"], angry_DT[which(angry_DT$Dx == "1td" & angry_DT$Comp == "N2PC"),"value"])
+t.test(angry_DT[which(angry_DT$Dx == "22q" & angry_DT$Comp == "PD"),"value"], angry_DT[which(angry_DT$Dx == "1td" & angry_DT$Comp == "PD"),"value"])
+t.test(angry_DT[which(angry_DT$Dx == "22q" & angry_DT$Comp == "N2PC"),"value"], angry_DT[which(angry_DT$Dx == "22q" & angry_DT$Comp == "PD"),"value"])
+t.test(angry_DT[which(angry_DT$Dx == "1td" & angry_DT$Comp == "N2PC"),"value"], angry_DT[which(angry_DT$Dx == "1td" & angry_DT$Comp == "PD"),"value"])
+
+write.csv(out, "eDT_angry_out.csv",row.names=F)
+write.csv(angry_DT, "angry_DT_long.csv",row.names=F)
+write.csv(angry_DT_wide_trim,"angry_DT_wide.csv", row.names=F)

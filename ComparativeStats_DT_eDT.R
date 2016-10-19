@@ -82,4 +82,11 @@ n_out<-c(DT_22q_N2PC_n, DT_22q_PD_n, DT_1td_N2PC_n, DT_1td_PD_n, DT_22q_ratio_n,
 
 out<-data.frame(Dx_out, comp_out, mean_out, sem_out, n_out)
 
+t.test(DT[which(DT$Dx == "22q" & DT$comp == "N2PC"),"erp"], DT[which(DT$Dx == "1td" & DT$comp == "N2PC"),"erp"])
+t.test(DT[which(DT$Dx == "22q" & DT$comp == "PD"),"erp"], DT[which(DT$Dx == "1td" & DT$comp == "PD"),"erp"])
+t.test(DT[which(DT$Dx == "22q" & DT$comp == "N2PC"),"erp"], DT[which(DT$Dx == "22q" & DT$comp == "PD"),"erp"])
+t.test(DT[which(DT$Dx == "1td" & DT$comp == "N2PC"),"erp"], DT[which(DT$Dx == "1td" & DT$comp == "PD"),"erp"])
+
 write.csv(out, "DT_out.csv", row.names=F)
+write.csv(DT,"DT_long.csv",row.names=F)
+write.csv(DT_wide_trim,"DT_wide.csv",row.names=F)
