@@ -30,3 +30,24 @@ fit_PD_22q<-lme(value~as.factor(task), random= ~1|cabil, data=all[which(all$Dx==
 
 fit_N2PC_TD<-lme(value~as.factor(task), random= ~1|cabil, data=all[which(all$Dx=="1td" & all$Comp=="N2PC"),])
 fit_PD_TD<-lme(value~as.factor(task), random= ~1|cabil, data=all[which(all$Dx=="1td" & all$Comp=="PD"),])
+
+DTw<-read.csv("DT_wide.csv")
+aDTw<-read.csv("angry_DT_wide.csv")
+hDTw<-read.csv("happy_DT_wide.csv")
+
+DTw$task<-"cold"
+aDTw$task<-"angry"
+hDTw$task<-"happy"
+
+allw<-rbind(DTw, aDTw, hDTw)
+
+fit_ratio_22q<-lme(ratio~task, random= ~1|cabil, data = allw[which(all$Dx == "22q"),], na.action = na.omit)
+
+fit_ratio_td<-lme(ratio~task, random= ~1|cabil, data = allw[which(all$Dx == "1td"),], na.action = na.omit)
+
+t.test(all[which(all$Dx == "1td" & all$task == "angry"),"value"], all[which(all$Dx == "1td" & all$task == "happy"),"value"])
+
+t.test(allw[which(allw$Dx == "22q" & allw$task == "angry"),"ratio"], allw[which(allw$Dx == "22q" & allw$task == "happy"),"ratio"])
+
+
+t.test(allw[which(allw$Dx == "22q" & allw$task == "cold"),"ratio"], allw[which(allw$Dx == "22q" & allw$task == "happy"),"ratio"])
