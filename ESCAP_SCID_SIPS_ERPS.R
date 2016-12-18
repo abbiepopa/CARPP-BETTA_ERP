@@ -118,3 +118,15 @@ write.csv(SIPS_N, "sips_n_erp.csv", row.names=F)
 ###SIPS18_md_dstbnc
 ###SIPS19_imprd_tolrnce_nrml_strss
 ###SIPS22_crrnt_GAF
+
+SIPS_int <- c("SIPS02_suspcnss", "SIPS04_prcptl_abnrml_hallcn", "SIPS06_soc_anhdn_wthdrwl", "SIPS14_trble_fcus_attn", "SIPS16_slp_dstbnc", "SIPS17_dysphrc_md", "SIPS18_md_dstbnc", "SIPS19_imprd_tolrnce_nrml_strss", "SIPS22_crrnt_GAF")
+
+for(j in SIPS_int){
+	SIPS_noob <- merge(SIPS[, c("cabil", j)], allERPs, by = "cabil")
+	for(i in ERP_cols){
+		n <- SIPS_noob[,c("cabil",j,i)]
+		n <- na.omit(n)
+		print(paste(j,i, sep = " versus "))
+		print(cor.test(n[,j],n[,i]))
+	}
+}
