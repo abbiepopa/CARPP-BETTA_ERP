@@ -1,11 +1,11 @@
-setwd("~/Documents/ERP Analyses/data")
+setwd("~/Documents/ERP Analyses/data/measures_170314")
 
 #cold DT
-DT_N2_22q<-read.table("DT_cold_measures_22q_N2PC.txt", header=T)
-DT_N2_TD<-read.table("DT_cold_measures_TD_N2PC.txt", header=T)
+DT_N2_22q<-read.table("DT_22q_N2PC_170314.txt", header=T)
+DT_N2_TD<-read.table("DT_TD_N2PC_170314.txt", header=T)
 
-DT_PD_22q<-read.table("DT_cold_measures_22q_PD.txt", header=T)
-DT_PD_TD<-read.table("DT_cold_measures_TD_PD.txt", header=T)
+DT_PD_22q<-read.table("DT_22q_Pd_170314.txt", header=T)
+DT_PD_TD<-read.table("DT_TD_Pd_170314.txt", header=T)
 
 DT_N2_22q$Dx<-"22q"
 DT_PD_22q$Dx<-"22q"
