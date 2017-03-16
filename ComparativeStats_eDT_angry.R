@@ -69,7 +69,7 @@ angry_DT_wide_trim<-angry_DT_wide[,c("cabil","value.x","Dx.x","value.y")]
 colnames(angry_DT_wide_trim)<-c("cabil","N2PC","Dx","PD")
 angry_DT_wide_trim$ratio<-angry_DT_wide_trim$PD/angry_DT_wide_trim$N2PC
 
-angry_DT_wide_trim[which(angry_DT_wide_trim$ratio>200), "ratio"]<-NA
+#angry_DT_wide_trim[which(angry_DT_wide_trim$ratio>200), "ratio"]<-NA
 
 angry_DT_wide_trim1<-angry_DT_wide_trim
 angry_DT_wide_trim<-na.omit(angry_DT_wide_trim)

@@ -1,13 +1,19 @@
 setwd("~/Documents/ERP Analyses/data/measures_170314")
 
+
+####################################################
+### Note whether is outliers or not at bottom!!! ###
+####################################################
+
+
 ###for happy replace angry with happy, ang with hap, and bini==5 with bini==6
 
 #happy
 hap_N2PC_22q<-read.table("eDT_Happy_22q_N2PC_170315 copy.txt", header=T, sep="\t")
 hap_PD_22q<-read.table("eDT_Happy_22q_Pd_170315 copy.txt", header=T, sep="\t")
 
-hap_N2PC_TD<-read.table("eDT_Happy_TD_N2PC_170315.txt", header=T, sep="\t")
-hap_PD_TD<-read.table("eDT_Happy_TD_Pd_170315.txt", header=T, sep="\t")
+hap_N2PC_TD<-read.table("eDT_Happy_TD_N2PC_170315 copy.txt", header=T, sep="\t")
+hap_PD_TD<-read.table("eDT_Happy_TD_Pd_170315 copy.txt", header=T, sep="\t")
 
 ###for now just focus on cases where happy is the target###
 hap_N2PC_22qa<-hap_N2PC_22q[which(hap_N2PC_22q$bini==6),]
@@ -68,7 +74,7 @@ happy_DT_wide_trim<-happy_DT_wide[,c("cabil","value.x","Dx.x","value.y")]
 colnames(happy_DT_wide_trim)<-c("cabil","N2PC","Dx","PD")
 happy_DT_wide_trim$ratio<-happy_DT_wide_trim$PD/happy_DT_wide_trim$N2PC
 
-happy_DT_wide_trim[which(happy_DT_wide_trim$ratio>10), "ratio"]<-NA
+#happy_DT_wide_trim[which(happy_DT_wide_trim$ratio>100), "ratio"]<-NA
 
 happy_DT_wide_trim1<-happy_DT_wide_trim
 happy_DT_wide_trim<-na.omit(happy_DT_wide_trim)

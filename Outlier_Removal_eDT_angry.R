@@ -1,9 +1,5 @@
 setwd('~/Documents/ERP Analyses/data/measures_170314')
 
-####################################################
-### Note whether is outliers or not at bottom!!! ###
-####################################################
-
 DT_wide<-read.csv('happy_DT_wide.csv')
 
 DT_wide$outliers<-0
