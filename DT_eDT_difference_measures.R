@@ -1,6 +1,6 @@
 setwd('Documents/ERP Analyses/data/measures_170314')
 
-DT<-read.csv('DT_wide.csv')
+DT<-read.csv('happy_DT_wide.csv')
 
 DT$difference <- DT$PD - DT$N2PC
 
@@ -40,7 +40,7 @@ t.test(DT_td$N2PC, DT_td$PD, paired = T)
 
 t.test(DT_22q$N2PC, DT_td$N2PC)
 t.test(DT_22q$PD, DT_td$PD)
-t.test(DT_22q$PD, DT_td$difference)
+t.test(DT_22q$difference, DT_td$difference)
 
 DT_22q_N2PC_mean <- mean(DT_22q$N2PC)
 DT_22q_PD_mean <- mean(DT_22q$PD)
@@ -88,6 +88,6 @@ n_out<-c(
 	DT_TD_diff_n)
 out<-data.frame(Dx_out, comp_out, mean_out, sem_out, n_out)
 
-write.csv(out, "DT_out_diff_nooutliers.csv", row.names = F)
-write.csv(DT_noout, "DT_wide_diff_nooutliers.csv", row.names = F)
-write.csv(DT_outliers, "DT_diff_outliers.csv", row.names = F)
+write.csv(out, "happy_DT_out_diff_nooutliers.csv", row.names = F)
+write.csv(DT_noout, "happy_DT_wide_diff_nooutliers.csv", row.names = F)
+write.csv(DT_outliers, "happy_DT_diff_outliers.csv", row.names = F)
