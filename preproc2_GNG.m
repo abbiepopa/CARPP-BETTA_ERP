@@ -27,6 +27,8 @@ ERP = pop_binoperator( ERP, {  'BIN3 = BIN1 - BIN2 label NoGo_Minus_Go'});
 
 eeglab redraw
 
+%don't forget to save chop bop
+
 %% Plot GNG
 
 %difference wave
