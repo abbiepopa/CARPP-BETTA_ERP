@@ -1,15 +1,15 @@
-setwd("~/Documents/ERP Analyses/data/measures_170314")
+setwd("~/Documents/carpp/erp/data")
 
 ####################################################
 ### Note whether is outliers or not at bottom!!! ###
 ####################################################
 
 #angry
-ang_N2PC_22q<-read.table("eDT_Angry_22q_N2PC_170315 copy.txt", header=T, sep="\t")
-ang_PD_22q<-read.table("eDT_Angry_22q_Pd_170315 copy.txt", header=T, sep="\t")
+ang_N2PC_22q<-read.table("eDT_Angry_22q_N2PC_170607.txt", header=T, sep="\t")
+ang_PD_22q<-read.table("eDT_Angry_22q_Pd_170607.txt", header=T, sep="\t")
 
-ang_N2PC_TD<-read.table("eDT_Angry_TD_N2PC_170315 copy.txt", header=T, sep="\t")
-ang_PD_TD<-read.table("eDT_Angry_TD_PD_170315 copy.txt", header=T, sep="\t")
+ang_N2PC_TD<-read.table("eDT_Angry_TD_N2PC_170607.txt", header=T, sep="\t")
+ang_PD_TD<-read.table("eDT_Angry_TD_PD_170607.txt", header=T, sep="\t")
 
 ###for now just focus on cases where angry is the target###
 ang_N2PC_22qa<-ang_N2PC_22q[which(ang_N2PC_22q$bini==5),]
@@ -96,6 +96,6 @@ t.test(angry_DT[which(angry_DT$Dx == "22q" & angry_DT$Comp == "PD"),"value"], an
 t.test(angry_DT[which(angry_DT$Dx == "22q" & angry_DT$Comp == "N2PC"),"value"], angry_DT[which(angry_DT$Dx == "22q" & angry_DT$Comp == "PD"),"value"])
 t.test(angry_DT[which(angry_DT$Dx == "1td" & angry_DT$Comp == "N2PC"),"value"], angry_DT[which(angry_DT$Dx == "1td" & angry_DT$Comp == "PD"),"value"])
 
-write.csv(out, "eDT_angry_out_nooutliers.csv",row.names=F)
-write.csv(angry_DT, "angry_DT_long_nooutliers.csv",row.names=F)
-write.csv(angry_DT_wide_trim,"angry_DT_wide_nooutliers.csv", row.names=F)
+write.csv(out, "eDT_angry_out.csv",row.names=F)
+write.csv(angry_DT, "angry_DT_long.csv",row.names=F)
+write.csv(angry_DT_wide_trim,"angry_DT_wide.csv", row.names=F)

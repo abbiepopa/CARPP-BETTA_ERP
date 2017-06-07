@@ -1,4 +1,4 @@
-setwd("~/Documents/ERP Analyses/data/measures_170314")
+setwd("~/Documents/carpp/erp/data")
 
 
 ####################################################
@@ -9,11 +9,11 @@ setwd("~/Documents/ERP Analyses/data/measures_170314")
 ###for happy replace angry with happy, ang with hap, and bini==5 with bini==6
 
 #happy
-hap_N2PC_22q<-read.table("eDT_Happy_22q_N2PC_170315 copy.txt", header=T, sep="\t")
-hap_PD_22q<-read.table("eDT_Happy_22q_Pd_170315 copy.txt", header=T, sep="\t")
+hap_N2PC_22q<-read.table("eDT_happy_22q_N2PC_170607.txt", header=T, sep="\t")
+hap_PD_22q<-read.table("eDT_happy_22q_Pd_170607.txt", header=T, sep="\t")
 
-hap_N2PC_TD<-read.table("eDT_Happy_TD_N2PC_170315 copy.txt", header=T, sep="\t")
-hap_PD_TD<-read.table("eDT_Happy_TD_Pd_170315 copy.txt", header=T, sep="\t")
+hap_N2PC_TD<-read.table("eDT_happy_TD_N2PC_170607.txt", header=T, sep="\t")
+hap_PD_TD<-read.table("eDT_happy_TD_Pd_170607.txt", header=T, sep="\t")
 
 ###for now just focus on cases where happy is the target###
 hap_N2PC_22qa<-hap_N2PC_22q[which(hap_N2PC_22q$bini==5),]

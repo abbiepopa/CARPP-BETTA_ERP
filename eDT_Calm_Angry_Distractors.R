@@ -1,15 +1,15 @@
-setwd("~/Documents/ERP Analyses/data/calm_measures_170330")
+setwd("~/Documents/carpp/erp/data")
 
 ####################################################
 ### Note whether is outliers or not at bottom!!! ###
 ####################################################
 
 #angry
-ang_N2PC_22q<-read.table("eDT_Calm_22q_N2PC_170330.txt", header=T, sep="\t")
-ang_PD_22q<-read.table("eDT_Calm_Pd_170330.txt", header=T, sep="\t")
+ang_N2PC_22q<-read.table("eDT_calm_22q_N2PC_170607.txt", header=T, sep="\t")
+ang_PD_22q<-read.table("eDT_calm_22q_Pd_170607.txt", header=T, sep="\t")
 
-ang_N2PC_TD<-read.table("eDT_Calm_TD_N2PC_170330.txt", header=T, sep="\t")
-ang_PD_TD<-read.table("eDT_Calm_TD_Pd_170330.txt", header=T, sep="\t")
+ang_N2PC_TD<-read.table("eDT_calm_TD_N2PC_170607.txt", header=T, sep="\t")
+ang_PD_TD<-read.table("eDT_calm_TD_Pd_170607.txt", header=T, sep="\t")
 
 ###for now just focus on cases where angry is the target###
 ang_N2PC_22qa<-ang_N2PC_22q[which(ang_N2PC_22q$bini==5),]
