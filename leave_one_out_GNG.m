@@ -1,5 +1,8 @@
+%% summarize artifacts
+pop_summary_AR_erp_detection(ERP);
 
-ERP = pop_gaverager( ALLERP , 'Erpsets', [2:27 29:32], 'ExcludeNullBin', 'on', 'SEM', 'on' );
+%% leave one out
+ERP = pop_gaverager( ALLERP , 'Erpsets', [17], 'ExcludeNullBin', 'on', 'SEM', 'on' );
 
 %no difference wave
 ERP = pop_ploterps( ERP,  1:2,  35 , 'AutoYlim', 'on', 'Axsize', [ 0.05 0.08], 'BinNum', 'on', 'Blc', 'pre', 'Box', [ 1 1], 'ChLabel', 'on',...
