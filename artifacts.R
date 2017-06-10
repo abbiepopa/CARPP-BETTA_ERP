@@ -13,7 +13,7 @@ t.test(d['Ax',],d['HC',])
 t.test(d['22q',],d['TD',])
 
 library(psych)
-describe(d)
+describe(d)*100
 
 library(reshape)
 
@@ -24,3 +24,5 @@ colnames(d1) <- c('dx', 'task', 'value')
 summary(lm(value~task, data = d1))
 
 t.test(c(d[,'IAPS.negative'], d[,'IAPS.positive']), c(d[,'GNG'], d[,'faces.happy'], d[,'faces.angry']))
+
+mean(describe(d)$mean)
