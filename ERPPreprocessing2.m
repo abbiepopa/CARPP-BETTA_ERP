@@ -23,14 +23,14 @@ ERP = pop_erpchanoperator( ERP, {  'ch35 = (ch3 + ch2 + ch30 + ch8 + ch24 + ch25
  'ErrorMsg', 'popup', 'Warning', 'on' );
 
 %generage nogo minus go ERP
-ERP = pop_binoperator( ERP, {  'BIN3 = BIN1 - BIN2 label NoGo_Minus_Go'});
+ERP = pop_binoperator( ERP, {  'BIN4 = BIN1 - BIN2 label NoGo_Minus_Go'});
 
 eeglab redraw
 
 %% Plot GNG
 
 %difference wave
-ERP = pop_ploterps( ERP,  1:3,  35 , 'AutoYlim', 'on', 'Axsize', [ 0.05 0.08], 'BinNum', 'on', 'Blc', 'pre', 'Box', [ 6 6], 'ChLabel', 'on',...
+ERP = pop_ploterps( ERP,  [1 2 4],  35 , 'AutoYlim', 'on', 'Axsize', [ 0.05 0.08], 'BinNum', 'on', 'Blc', 'pre', 'Box', [ 6 6], 'ChLabel', 'on',...
  'FontSizeChan',  10, 'FontSizeLeg',  12, 'FontSizeTicks',  10, 'LegPos', 'bottom', 'Linespec', {'k-' , 'r-' , 'b-' }, 'LineWidth',  3,...
  'Maximize', 'on', 'Position', [ 100.476 25.456 106.857 31.9286], 'Style', 'Classic', 'Tag', 'ERP_figure', 'Transparency',  0, 'xscale',...
  [ -200.0 798.0   -200:200:600 ], 'YDir', 'normal' );
