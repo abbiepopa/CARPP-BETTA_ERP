@@ -36,3 +36,5 @@ EEG=pop_chanedit(EEG,'lookup', '/Users/abbiepopa/Documents/MATLAB/eeglab14_1_0b/
 %EEG=pop_chanedit(EEG,'lookup', 'C:\Users\MIND\Documents\MATLAB\eeglab13_4_4b\plugins\dipfit2.3\standard_BESA\standard-10-5-cap385.elp');
 %EEG=pop_chanedit(EEG,'lookup', '/Users/MIND/Documents/MATLAB/eeglab13_4_4b/plugins/dipfit2.3/standard_BESA/standard-10-5-cap385.elp');
 %EEG=pop_chanedit(EEG,'lookup', '/Users/cabil/Documents/MATLAB/eeglab13_4_4b/plugins/dipfit2.3/standard_BESA/standard-10-5-cap385.elp');
+
+eeglab redraw
