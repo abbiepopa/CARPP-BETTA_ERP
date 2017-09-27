@@ -54,7 +54,7 @@ ERP = pop_binoperator( ERP, {  'bin3 = bin1 - bin2 label TargetMatch Contra-Ipsi
 %create averaged sites for DT
 ERP = pop_erpchanoperator( ERP, {  'ch35 = (ch14 + ch15 + ch16)/3 label Average Occipital Parietal'} , 'ErrorMsg', 'popup', 'Warning', 'on' );
 
-%save ERPset and EEGset!
+%save ERPset!
 eeglab redraw
 
 %% plot DT
@@ -79,7 +79,7 @@ ERP = pop_binoperator( ERP, {  'bin5 = bin1 - bin2 label Angry Contra-Ipsi',  'b
 %create averaged sites for DT
 ERP = pop_erpchanoperator( ERP, {  'ch35 = (ch14 + ch15 + ch16)/3 label Average Occipital Parietal'} , 'ErrorMsg', 'popup', 'Warning', 'on' );
 
-%save ERPset and EEGset!
+%save ERPset!
 eeglab redraw
 
 %% plot eDT 
