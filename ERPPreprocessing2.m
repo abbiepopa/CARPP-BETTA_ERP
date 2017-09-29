@@ -1,3 +1,4 @@
+%%Run on all files
 %open ICA pruned file
 % import elist
 EEG = pop_importeegeventlist( EEG, 'elist_art.txt' , 'ReplaceEventList',...
