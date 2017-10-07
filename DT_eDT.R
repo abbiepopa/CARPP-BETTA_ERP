@@ -1,7 +1,7 @@
-setwd("~/Documents/ERP Analyses/data/measures_170314")
-DTl<-read.csv("DT_long_nooutliers.csv")
-aDTl<-read.csv("angry_DT_long_nooutliers.csv")
-hDTl<-read.csv("happy_DT_long_nooutliers.csv")
+setwd('~/Documents/carpp/erp/data/')
+DTl<-read.csv("DT_long.csv")
+aDTl<-read.csv("angry_DT_long.csv")
+hDTl<-read.csv("happy_DT_long.csv")
 
 aDTl<-aDTl[,c("value", "ERPset","Dx","Comp","cabil")]
 hDTl<-hDTl[,c("value", "ERPset","Dx","Comp","cabil")]

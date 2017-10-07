@@ -5,11 +5,11 @@ setwd("~/Documents/carpp/erp/data")
 ####################################################
 
 #angry
-ang_N2PC_22q<-read.table("eDT_calm_22q_N2PC_170607.txt", header=T, sep="\t")
-ang_PD_22q<-read.table("eDT_calm_22q_Pd_170607.txt", header=T, sep="\t")
+ang_N2PC_22q<-read.table("eDT_calm_22q_N2PC_171006.txt", header=T, sep="\t")
+ang_PD_22q<-read.table("eDT_calm_22q_Pd_171006.txt", header=T, sep="\t")
 
-ang_N2PC_TD<-read.table("eDT_calm_TD_N2PC_170607.txt", header=T, sep="\t")
-ang_PD_TD<-read.table("eDT_calm_TD_Pd_170607.txt", header=T, sep="\t")
+ang_N2PC_TD<-read.table("eDT_calm_TD_N2PC_171006.txt", header=T, sep="\t")
+ang_PD_TD<-read.table("eDT_calm_TD_Pd_171006.txt", header=T, sep="\t")
 
 ###for now just focus on cases where angry is the target###
 ang_N2PC_22qa<-ang_N2PC_22q[which(ang_N2PC_22q$bini==5),]
