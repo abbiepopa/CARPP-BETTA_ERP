@@ -6,7 +6,7 @@
 
 ## Scripts for comparing ERP Outcome measures
 
-* ComparativeStats_DT.R: 
+* *ComparativeStats_DT.R* 
 	* takes as input 4 files that are output from the Matlab analysis of DT ERPS
 		* Long format N2PC file for participants with 22q
 		* Long format N2PC file for participants who are TD
@@ -17,7 +17,7 @@
 		* Long format where both diagnoses are components are included
 		* Wide format where both diagnoses and components are included
 		* Summary sheet with means, sems, and n's for both groups
-* ComparativeStats_eDT_angry.R
+* *ComparativeStats_eDT_angry.R*
 	* takes as input 4 files that are output from the Matlab analysis of eDT angry ERPS
 		* Long format N2PC file for participants with 22q
 		* Long format N2PC file for participants who are TD
