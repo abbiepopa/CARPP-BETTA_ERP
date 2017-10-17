@@ -30,3 +30,16 @@
 		* Long format where both diagnoses are components are included
 		* Wide format where both diagnoses and components are included
 		* Summary sheet with means, sems, and n's for both groups
+* **ComparativeStats_eDT_happy.R**
+	* takes as input 4 files that are output from the Matlab analysis of eDT happy ERPS
+		* Long format N2PC file for participants with 22q
+		* Long format N2PC file for participants who are TD
+		* Long format Pd file for participants with 22q
+		* Long format Pd file for participants who are 22q
+	* Analyzes between and within group measures for eDT only! Additionally note, the analyses
+	are only performed for when happy is the target AND the distractor. The task irrelevant distractors
+	are not analyzed.
+	* outputs three files with eDT_happy as the qualifier
+		* Long format where both diagnoses are components are included
+		* Wide format where both diagnoses and components are included
+		* Summary sheet with means, sems, and n's for both groups
