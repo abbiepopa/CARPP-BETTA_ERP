@@ -1,4 +1,11 @@
 %% GNG event list
+current_folder = pwd;
+pid = '651';
+task = 'eGNG_Happy';
+
+filename_in_1 = strcat(task, '_',pid,'_AR.set');
+
+EEG = pop_loadset('filename', filename_in_1, 'filepath', current_folder);
 
 %create EEG eventlist, run on non-pruned version
 EEG  = pop_editeventlist( EEG , 'AlphanumericCleaning', 'on', 'BoundaryNumeric', { -99}, 'BoundaryString', { 'boundary' }, 'ExportEL',...
@@ -19,6 +26,9 @@ EEG  = pop_artstep( EEG , 'Channel',  33, 'Flag', [ 1 3], 'Threshold',  100, 'Tw
 EEG = pop_exporteegeventlist( EEG , 'Filename',...
  'elist_art.txt' );
 
-%save file manually
+
+filename0 = strcat(task, '_', pid, '_preman', '.set');
+EEG = pop_saveset(EEG, 'filename', filename0, 'filepath', current_folder);
+
 %open ICA pruned file
-eeglab redraw
+%eeglab redraw
