@@ -43,3 +43,7 @@
 		* Long format where both diagnoses are components are included
 		* Wide format where both diagnoses and components are included
 		* Summary sheet with means, sems, and n's for both groups
+* **ComparativeStats_GNG_eGNG.R**
+	* takes as input 6 files, all long format N2 output from Matlab, 3 emotions (including cold) and two diagnostic groups
+	* Analyzes by comparing diagnostic groups and emotional condtions
+	* Outputs one summary sheet for each emotion (including cold)
