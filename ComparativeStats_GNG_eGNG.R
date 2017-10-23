@@ -1,9 +1,9 @@
-setwd("~/Documents/carpp/erp/data")
+setwd("~/Documents/carpp/erp/data/GNG_eGNG")
 
 #cold GNG
 
-GNG_22q<-read.table("GNG_22q_N2_170607.txt", header=T)
-GNG_TD<-read.table("GNG_TD_N2_170607.txt", header=T)
+GNG_22q<-read.table("GNG_22q_N2_171020.txt", header=T)
+GNG_TD<-read.table("GNG_TD_N2_171020.txt", header=T)
 
 t.test(GNG_22q$value, GNG_TD$value)
 
@@ -17,12 +17,12 @@ out<-data.frame(
 
 colnames(out)<-c("task", "Dx", "mean", "se", "n")
 
-write.csv(out, "GNG_out_170607.csv", row.names=F)
+write.csv(out, "GNG_out_171020.csv", row.names=F)
 
 #eGNG angry
 
-eGNG_angry_22q<-read.table("eGNG_angry_22q_N2_170607.txt", header=T)
-eGNG_angry_TD<-read.table("eGNG_angry_TD_N2_170607.txt", header=T)
+eGNG_angry_22q<-read.table("eGNG_Angry_22q_N2_171020.txt", header=T)
+eGNG_angry_TD<-read.table("eGNG_Angry_TD_N2_171020.txt", header=T)
 
 
 t.test(eGNG_angry_22q$value, eGNG_angry_TD$value)
@@ -37,12 +37,12 @@ out<-data.frame(
 
 colnames(out)<-c("task", "Dx", "mean", "se", "n")
 
-write.csv(out, "eGNG_angry_out_170607.csv", row.names=F)
+write.csv(out, "eGNG_Angry_out_171020.csv", row.names=F)
 
 #eGNG happy
 
-eGNG_happy_22q<-read.table("eGNG_happy_22q_N2_170607.txt", header=T)
-eGNG_happy_TD<-read.table("eGNG_happy_TD_N2_170607.txt", header=T)
+eGNG_happy_22q<-read.table("eGNG_Happy_22q_N2_171020.txt", header=T)
+eGNG_happy_TD<-read.table("eGNG_Happy_TD_N2_171020.txt", header=T)
 
 
 t.test(eGNG_happy_22q$value, eGNG_happy_TD$value)
@@ -57,7 +57,7 @@ out<-data.frame(
 
 colnames(out)<-c("task", "Dx", "mean", "se", "n")
 
-write.csv(out, "eGNG_happy_out_170607.csv", row.names=F)
+write.csv(out, "eGNG_Happy_out_171020.csv", row.names=F)
 
 ###lme with participant as a random effect, also with Dx together (and effect of Dx) and separate
 
