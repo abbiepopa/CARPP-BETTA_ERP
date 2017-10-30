@@ -47,3 +47,9 @@
 	* takes as input 6 files, all long format N2 output from Matlab, 3 emotions (including cold) and two diagnostic groups
 	* Analyzes by comparing diagnostic groups and emotional condtions
 	* Outputs one summary sheet for each emotion (including cold)
+	
+## Outdated Files
+* Completion Checklist.xlsx
+* ERPPreprocessing2.m
+* ERPPre_Manual.m
+* ERPProcessing.m
