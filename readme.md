@@ -47,6 +47,13 @@
 	* takes as input 6 files, all long format N2 output from Matlab, 3 emotions (including cold) and two diagnostic groups
 	* Analyzes by comparing diagnostic groups and emotional condtions
 	* Outputs one summary sheet for each emotion (including cold)
+* **ERPPrepocessing1.m**
+	* To run, some manual steps are needed:
+		1. Run eeglab (through matlab)
+		2. Import your Brain Products files
+		3. Append all sessions
+		4. Run the script!
+	* This script will label electrode locations, filter, and rereference your eeg data!
 	
 ## Outdated Files
 * Completion Checklist.xlsx
