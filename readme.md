@@ -1,9 +1,18 @@
 # ERP Processing Pipeline for CARPP and BETTA
+	
+## Scripts for processing individual's files
 
-## Scripts for Going from EEG to ERP
-
-*needs to be filled in*
-
+* **ERPPrepocessing1.m**
+	* To run, some manual steps are needed:
+		1. Run eeglab (through matlab)
+		2. Import your Brain Products files
+		3. Append all sessions
+		4. Run the script!
+	* This script will label electrode locations, filter, and rereference your eeg data!
+* **ERPPreprocessing1_rerefed_files.m**
+	* This file works the same as the ERPPreprocessing1 file but is for running on participants
+	where recording inadvertently rereferenced online
+	
 ## Scripts for comparing ERP Outcome measures
 
 * **ComparativeStats_DT.R** 
@@ -47,14 +56,7 @@
 	* takes as input 6 files, all long format N2 output from Matlab, 3 emotions (including cold) and two diagnostic groups
 	* Analyzes by comparing diagnostic groups and emotional condtions
 	* Outputs one summary sheet for each emotion (including cold)
-* **ERPPrepocessing1.m**
-	* To run, some manual steps are needed:
-		1. Run eeglab (through matlab)
-		2. Import your Brain Products files
-		3. Append all sessions
-		4. Run the script!
-	* This script will label electrode locations, filter, and rereference your eeg data!
-	
+
 ## Outdated Files
 * Completion Checklist.xlsx
 * ERPPreprocessing2.m
