@@ -1,7 +1,7 @@
 %% GNG event list
 current_folder = pwd;
-pid = '651';
-task = 'eGNG_Happy';
+pid = '915';
+task = 'eGNG_Faces_Happy';
 
 filename_in_1 = strcat(task, '_',pid,'_AR.set');
 
