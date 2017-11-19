@@ -1,5 +1,5 @@
 %cfold = pwd;
-pid = '1010';
+pid = '992';
 %current_folder = strcat(cfold, '/',pid);
 current_folder = pwd;
 task = 'eDT_Angry';
@@ -37,7 +37,7 @@ EEG = pop_exporteegeventlist( EEG , 'Filename',...
 filename0 = strcat(task, '_', pid, '_preman', '.set');
 EEG = pop_saveset(EEG, 'filename', filename0, 'filepath', current_folder);
 
-filename_in_2 = strcat(task, '_',pid,'_pruned with ICA.set');
+filename_in_2 = strcat(task, '_',pid,'_AR pruned with ICA.set');
 
 EEG = pop_loadset('filename', filename_in_2, 'filepath', current_folder);
 
