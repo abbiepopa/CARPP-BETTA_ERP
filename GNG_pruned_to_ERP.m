@@ -1,9 +1,9 @@
 %% GNG event list
 %cfold = pwd;
-pid = '886';
+pid = '992';
 %current_folder = strcat(cfold, '/',pid);
 current_folder = pwd;
-task = 'eGNG_Happy';
+task = 'GNG';
 
 filename_in_1 = strcat(task, '_',pid,'_AR.set');
 
