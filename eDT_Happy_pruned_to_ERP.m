@@ -1,6 +1,6 @@
 
 %cfold = pwd;
-pid = '992';
+pid = '959';
 %current_folder = strcat(cfold, '/',pid);
 current_folder = pwd;
 task = 'eDT_Happy';
@@ -17,7 +17,7 @@ EEG = pop_loadset('filename', filename_in_1, 'filepath', current_folder);
  %'on', 'Warning', 'on' );
 
 EEG  = pop_editeventlist( EEG , 'AlphanumericCleaning', 'on', 'BoundaryNumeric', { -99}, 'BoundaryString', { 'boundary' }, 'ExportEL',...
- 'elist_happyDT.txt', 'List', '/Volumes/REDWOOD/Blackbird/Intern Folder/ERP/Scripts/elist_advanced_lister_happy_150821.txt', 'SendEL2', 'EEG&Text', 'UpdateEEG',...
+ 'elist_happyDT.txt', 'List', '/Volumes/REDWOOD/Blackbird/Intern_Folder/ERP/Scripts/elist_advanced_lister_happy_150821.txt', 'SendEL2', 'EEG&Text', 'UpdateEEG',...
  'on', 'Warning', 'on' );
 %% all ERPs
 %extract bin based epochs
