@@ -1,8 +1,8 @@
 %% set variable
 % eeglab
 
-pid = '847';
-task = 'eDT_angry';
+pid = '989';
+task = 'eGNG_angry';
 current_folder = pwd;
 
 %% filter it
@@ -30,7 +30,7 @@ EEG = pop_continuousartdet( EEG , 'ampth', [ -810 810], 'chanArray',  1, 'colors
 eeglab redraw
 
 %% add event codes
-thresh = 350
+thresh = 500
 
 EEG = pop_insertcodeatTTL( EEG,1, 'NewCode',  88, 'RelationalOperation', '>=', 'Threshold',  thresh );
 

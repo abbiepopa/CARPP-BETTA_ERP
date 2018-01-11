@@ -1,8 +1,8 @@
 %cfold = pwd;
-pid = '954';
+pid = '824';
 %current_folder = strcat(cfold, '/',pid);
 current_folder = pwd;
-task = 'eDT_Calm';
+task = 'eDT_Angry';
 
 filename_in_1 = strcat(task, '_',pid,'_AR.set');
 
