@@ -1,9 +1,20 @@
+%% File info
+
+file_in = strcat(pwd, '/eDT_happy_TD_180111.txt');
+
 %% PD
-ALLERP = pop_geterpvalues( ALLERP, [ 200 500], [ 5 6],  35 , 'Baseline', 'pre', 'Binlabel', 'on', 'Erpsets',  1:8, 'FileFormat', 'long',...
- 'Filename', '/Volumes/REDWOOD/Blackbird/Intern Folder/ERP/TD ERPs/eDT happy/eDT_happy_measures_TD_PD_corr.txt', 'Fracreplace', 'NaN', 'InterpFactor',...
-  1, 'Measure', 'areap', 'Resolution',  3 );
+
+file_out = strcat(pwd, '/eDT_happy_TD_Pd_180111.txt');
+
+ALLERP = pop_geterpvalues( file_in ,...
+ [ 200 500],  [5 6],  35 , 'Baseline', 'pre', 'Binlabel', 'on', 'FileFormat', 'long', 'Filename', file_out ,...
+ 'Fracreplace', 'NaN', 'InterpFactor',  1, 'Measure', 'areap', 'PeakOnset',  1, 'Resolution',  3 );
+
 
 %% N2PC
-ALLERP = pop_geterpvalues( ALLERP, [ 150 450], [ 5 6],  35 , 'Baseline', 'pre', 'Binlabel', 'on', 'Erpsets',  1:8, 'FileFormat', 'long',...
- 'Filename', '/Volumes/REDWOOD/Blackbird/Intern Folder/ERP/TD ERPs/eDT happy/eDT_happy_measures_TD_N2PC_corr.txt', 'Fracreplace', 'NaN', 'InterpFactor',...
-  1, 'Measure', 'arean', 'Resolution',  3 );
+
+file_out = strcat(pwd,'/eDT_happy_TD_N2PC_180111.txt');
+
+ALLERP = pop_geterpvalues( file_in,...
+ [ 150 450],  [5 6],  35 , 'Baseline', 'pre', 'Binlabel', 'on', 'FileFormat', 'long', 'Filename', file_out,...
+ 'Fracreplace', 'NaN', 'InterpFactor',  1, 'Measure', 'arean', 'PeakOnset',  1, 'Resolution',  3 );

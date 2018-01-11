@@ -2,7 +2,10 @@
 ERP = pop_binoperator( ERP, {  'BIN3 = BIN1 - BIN2 label NoGo_Minus_Go'});
 eeglab redraw
 %% measure negative AUC
-%measure negative AUC, do on all sets once subtraction has been made,
-%saving here for settings not to run
-ALLERP = pop_geterpvalues( ERP, [ 150 450],  3,  35 , 'Baseline', 'pre', 'FileFormat', 'wide', 'Filename', '/Users/abbiepopa/Documents/MATLAB/GNG_measure_test.txt',...
- 'Fracreplace', 'NaN', 'InterpFactor',  1, 'Measure', 'arean', 'Resolution',  3 );
+file_in = strcat(pwd, '/GNG_TD_180111.txt')
+file_out = strcat(pwd, '/GNG_TD_N2_180111.txt')
+
+ALLERP = pop_geterpvalues( file_in,...
+ [ 150 450],  4,  35 , 'Baseline', 'pre', 'Binlabel', 'on', 'FileFormat', 'long', 'Filename',...
+ file_out, 'Fracreplace', 'NaN', 'InterpFactor',  1, 'Measure', 'arean', 'PeakOnset',...
+  1, 'Resolution',  3 );
