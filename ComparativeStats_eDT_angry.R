@@ -30,12 +30,17 @@ ang_PD_TDa$Comp<-"PD"
 angry_DT<-rbind(ang_N2PC_22qa, ang_PD_22qa, ang_N2PC_TDa, ang_PD_TDa)
 
 cabilid<-function(rawr){
-	return(substr(rawr, start = (nchar(rawr)-2), stop = nchar(rawr)))
+	outs <- gsub("_angryDT", "", rawr)
+	outs <- gsub("eDT_angry_", "", outs)
+	outs <- gsub("eDT_Angry_", "", outs)
+	outs <- gsub("_ci", "", outs)
+	return(outs)
+#	return(substr(rawr, start = (nchar(rawr)-2), stop = nchar(rawr)))
 }
 
 
 angry_DT$cabil<-unlist(lapply(as.character(angry_DT$ERPset), cabilid))
-angry_DT[which(angry_DT$cabil == "yDT"), "cabil"]<-"842"
+#angry_DT[which(angry_DT$cabil == "yDT"), "cabil"]<-"842"
 
 angry_DT$cabil<-as.factor(angry_DT$cabil)
 
