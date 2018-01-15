@@ -1,4 +1,4 @@
-setwd("~/Documents/carpp/erp/data")
+setwd("~/Documents/carpp/erp/data/DT_eDT/raw")
 
 
 ####################################################
@@ -9,11 +9,11 @@ setwd("~/Documents/carpp/erp/data")
 ###for happy replace angry with happy, ang with hap, and bini==5 with bini==6
 
 #happy
-hap_N2PC_22q<-read.table("eDT_happy_22q_N2PC_171006.txt", header=T, sep="\t")
-hap_PD_22q<-read.table("eDT_happy_22q_Pd_171006.txt", header=T, sep="\t")
+hap_N2PC_22q<-read.table("eDT_happy_22q_N2PC_180111.txt", header=T, sep="\t")
+hap_PD_22q<-read.table("eDT_happy_22q_Pd_180111.txt", header=T, sep="\t")
 
-hap_N2PC_TD<-read.table("eDT_happy_TD_N2PC_171006.txt", header=T, sep="\t")
-hap_PD_TD<-read.table("eDT_happy_TD_Pd_171006.txt", header=T, sep="\t")
+hap_N2PC_TD<-read.table("eDT_happy_TD_N2PC_180111.txt", header=T, sep="\t")
+hap_PD_TD<-read.table("eDT_happy_TD_Pd_180111.txt", header=T, sep="\t")
 
 ###for now just focus on cases where happy is the target###
 hap_N2PC_22qa<-hap_N2PC_22q[which(hap_N2PC_22q$bini==5),]
@@ -34,13 +34,19 @@ hap_PD_TDa$Comp<-"PD"
 happy_DT<-rbind(hap_N2PC_22qa, hap_PD_22qa, hap_N2PC_TDa, hap_PD_TDa)
 
 cabilid<-function(rawr){
-	return(substr(rawr, start = (nchar(rawr)-2), stop = nchar(rawr)))
+	outs <- gsub("_happyDT", "", rawr)
+	outs <- gsub("eDT_happy_", "", outs)
+	outs <- gsub("eDT_Happy_", "", outs)
+	outs <- gsub("_CI", "", outs)
+	outs <- gsub("_ci", "", outs)
+	return(outs)
+#	return(substr(rawr, start = (nchar(rawr)-2), stop = nchar(rawr)))
 }
 
 
 happy_DT$cabil<-unlist(lapply(as.character(happy_DT$ERPset), cabilid))
-happy_DT[which(happy_DT$cabil == "yDT"), "cabil"]<-"842"
-happy_DT[which(happy_DT$cabil == "_CI"), "cabil"]<-"300"
+#happy_DT[which(happy_DT$cabil == "yDT"), "cabil"]<-"842"
+#happy_DT[which(happy_DT$cabil == "_CI"), "cabil"]<-"300"
 
 happy_DT$cabil<-as.factor(happy_DT$cabil)
 
@@ -101,6 +107,7 @@ t.test(happy_DT[which(happy_DT$Dx == "22q" & happy_DT$Comp == "N2PC"),"value"], 
 t.test(happy_DT[which(happy_DT$Dx == "22q" & happy_DT$Comp == "PD"),"value"], happy_DT[which(happy_DT$Dx == "1td" & happy_DT$Comp == "PD"),"value"])
 t.test(happy_DT[which(happy_DT$Dx == "22q" & happy_DT$Comp == "N2PC"),"value"], happy_DT[which(happy_DT$Dx == "22q" & happy_DT$Comp == "PD"),"value"])
 t.test(happy_DT[which(happy_DT$Dx == "1td" & happy_DT$Comp == "N2PC"),"value"], happy_DT[which(happy_DT$Dx == "1td" & happy_DT$Comp == "PD"),"value"])
+setwd("~/Documents/carpp/erp/data/DT_eDT/out")
 
 write.csv(out, "eDT_happy_out_task_irrelevant.csv",row.names=F)
 write.csv(happy_DT, "happy_DT_long_task_irrelevant.csv",row.names=F)

@@ -1,15 +1,15 @@
-setwd("~/Documents/carpp/erp/data")
+setwd("~/Documents/carpp/erp/data/DT_eDT/raw")
 
 ####################################################
 ### Note whether is outliers or not at bottom!!! ###
 ####################################################
 
 #angry
-ang_N2PC_22q<-read.table("eDT_calm_22q_N2PC_171006.txt", header=T, sep="\t")
-ang_PD_22q<-read.table("eDT_calm_22q_Pd_171006.txt", header=T, sep="\t")
+ang_N2PC_22q<-read.table("eDT_calm_22q_N2PC_180111.txt", header=T, sep="\t")
+ang_PD_22q<-read.table("eDT_calm_22q_Pd_180111.txt", header=T, sep="\t")
 
-ang_N2PC_TD<-read.table("eDT_calm_TD_N2PC_171006.txt", header=T, sep="\t")
-ang_PD_TD<-read.table("eDT_calm_TD_Pd_171006.txt", header=T, sep="\t")
+ang_N2PC_TD<-read.table("eDT_calm_TD_N2PC_180111.txt", header=T, sep="\t")
+ang_PD_TD<-read.table("eDT_calm_TD_Pd_180111.txt", header=T, sep="\t")
 
 ###for now just focus on cases where angry is the target###
 ang_N2PC_22qa<-ang_N2PC_22q[which(ang_N2PC_22q$bini==5),]
@@ -30,12 +30,18 @@ ang_PD_TDa$Comp<-"PD"
 angry_DT<-rbind(ang_N2PC_22qa, ang_PD_22qa, ang_N2PC_TDa, ang_PD_TDa)
 
 cabilid<-function(rawr){
-	return(substr(rawr, start = (nchar(rawr)-2), stop = nchar(rawr)))
+	outs <- gsub("_CI_filt", "", rawr)
+	outs <- gsub("eDT_calm_", "", outs)
+	outs <- gsub("eDT_Calm_", "", outs)
+	outs <- gsub("_ci", "", outs)
+	outs <- gsub("_cb", "", outs)
+	return(outs)
+#	return(substr(rawr, start = (nchar(rawr)-2), stop = nchar(rawr)))
 }
 
 
 angry_DT$cabil<-unlist(lapply(as.character(angry_DT$ERPset), cabilid))
-angry_DT[which(angry_DT$cabil == "yDT"), "cabil"]<-"842"
+#angry_DT[which(angry_DT$cabil == "yDT"), "cabil"]<-"842"
 
 angry_DT$cabil<-as.factor(angry_DT$cabil)
 
@@ -95,6 +101,8 @@ t.test(angry_DT[which(angry_DT$Dx == "22q" & angry_DT$Comp == "N2PC"),"value"], 
 t.test(angry_DT[which(angry_DT$Dx == "22q" & angry_DT$Comp == "PD"),"value"], angry_DT[which(angry_DT$Dx == "1td" & angry_DT$Comp == "PD"),"value"])
 t.test(angry_DT[which(angry_DT$Dx == "22q" & angry_DT$Comp == "N2PC"),"value"], angry_DT[which(angry_DT$Dx == "22q" & angry_DT$Comp == "PD"),"value"])
 t.test(angry_DT[which(angry_DT$Dx == "1td" & angry_DT$Comp == "N2PC"),"value"], angry_DT[which(angry_DT$Dx == "1td" & angry_DT$Comp == "PD"),"value"])
+
+setwd("~/Documents/carpp/erp/data/DT_eDT/out")
 
 write.csv(out, "eDT_calm_angry_distractors_out.csv",row.names=F)
 write.csv(angry_DT, "eDT_calm_angry_distractors_long.csv",row.names=F)
