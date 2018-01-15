@@ -1,11 +1,11 @@
-setwd("~/Documents/carpp/erp/data")
+setwd("~/Documents/carpp/erp/data/DT_eDT/raw")
 
 #cold DT
-DT_N2_22q<-read.table("DT_22q_N2PC_171006.txt", header=T)
-DT_N2_TD<-read.table("DT_TD_N2PC_171006.txt", header=T)
+DT_N2_22q<-read.table("DT_22q_N2PC_180111.txt", sep = '\t', header=T)
+DT_N2_TD<-read.table("DT_TD_N2PC_180111.txt", sep= '\t', header=T)
 
-DT_PD_22q<-read.table("DT_22q_Pd_171006.txt", header=T)
-DT_PD_TD<-read.table("DT_TD_Pd_171006.txt", header=T)
+DT_PD_22q<-read.table("DT_22q_Pd_180111.txt", sep= '\t', header=T)
+DT_PD_TD<-read.table("DT_TD_Pd_180111.txt", sep = '\t', header=T)
 
 DT_N2_22q$Dx<-"22q"
 DT_PD_22q$Dx<-"22q"
@@ -20,12 +20,18 @@ DT_PD_TD$comp<-"PD"
 DT<-rbind(DT_N2_22q, DT_N2_TD, DT_PD_22q, DT_PD_TD)
 
 cabilid<-function(rawr){
-	return(substr(rawr, start = (nchar(rawr)-2), stop = nchar(rawr)))
+	outs <- gsub("_ci", "", rawr)
+	outs <- gsub("DT_", "", outs)
+	outs <- gsub("_CI1", "", outs)
+	outs <- gsub("_CI_filt", "", outs)
+	outs <- gsub("_DT", "", outs)
+	return(outs)
+#	return(substr(rawr, start = (nchar(rawr)-2), stop = nchar(rawr)))
 }
 
 DT$cabil<-unlist(lapply(as.character(DT$ERPset), cabilid))
-DT[which(DT$cabil == "_DT"), "cabil"]<-"308"
-DT[which(DT$cabil == "CI1"), "cabil"]<-"180"
+#DT[which(DT$cabil == "_DT"), "cabil"]<-"308"
+#DT[which(DT$cabil == "CI1"), "cabil"]<-"180"
 
 DT$cabil<-as.factor(DT$cabil)
 
@@ -87,6 +93,7 @@ t.test(DT[which(DT$Dx == "22q" & DT$comp == "PD"),"erp"], DT[which(DT$Dx == "1td
 t.test(DT[which(DT$Dx == "22q" & DT$comp == "N2PC"),"erp"], DT[which(DT$Dx == "22q" & DT$comp == "PD"),"erp"])
 t.test(DT[which(DT$Dx == "1td" & DT$comp == "N2PC"),"erp"], DT[which(DT$Dx == "1td" & DT$comp == "PD"),"erp"])
 
+setwd("~/Documents/carpp/erp/data/DT_eDT/out")
 write.csv(out, "DT_out.csv", row.names=F)
 write.csv(DT,"DT_long.csv",row.names=F)
 write.csv(DT_wide_trim,"DT_wide.csv",row.names=F)
