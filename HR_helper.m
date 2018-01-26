@@ -1,8 +1,8 @@
 %% set variable
 % eeglab
 
-pid = '989';
-task = 'eGNG_angry';
+pid = '912';
+task = 'eGNG_happy';
 current_folder = pwd;
 
 %% filter it
@@ -25,12 +25,12 @@ EEG = pop_loadset('filename', filename0, 'filepath', current_folder);
 eeglab redraw
 %% optional, remove continuous artifacts
 
-EEG = pop_continuousartdet( EEG , 'ampth', [ -810 810], 'chanArray',  1, 'colorseg', [ 1 0.9765 0.5294], 'forder',  100, 'stepms',  250,...
+EEG = pop_continuousartdet( EEG , 'ampth', [ -1500 1500], 'chanArray',  1, 'colorseg', [ 1 0.9765 0.5294], 'forder',  100, 'stepms',  250,...
  'winms',  500 );
 eeglab redraw
 
 %% add event codes
-thresh = 500
+thresh = 80
 
 EEG = pop_insertcodeatTTL( EEG,1, 'NewCode',  88, 'RelationalOperation', '>=', 'Threshold',  thresh );
 
