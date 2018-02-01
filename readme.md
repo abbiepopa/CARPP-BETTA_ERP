@@ -13,6 +13,13 @@
 	* This file works the same as the ERPPreprocessing1 file but is for running on participants
 	where recording inadvertently rereferenced online
 	
+## Scripts for Generating Group Files
+* **DT_AUC.m**
+	* This must be run after the list of all ERPs to be included has been generated
+	* Currently, this script will output negative and positive area under the curve measures for N2PC
+	and Pd (respectively). The windows are 150-450 and 200-500 (respectively)
+	* One file is output for N2PC and one is output for PD, TD and clinical participants are run separately
+	
 ## Scripts for comparing ERP Outcome measures
 
 * **ComparativeStats_DT.R** 
