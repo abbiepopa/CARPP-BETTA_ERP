@@ -12,6 +12,13 @@
 * **ERPPreprocessing1_rerefed_files.m**
 	* This file works the same as the ERPPreprocessing1 file but is for running on participants
 	where recording inadvertently rereferenced online
+* **DT_pruned_to_ERP.m**
+	* Requires that the DT EEG file that has had artifacts removed (But not ICA components) and the file that has had
+	ICA pruning be in the present working directory.
+	* Processes the file to add event list, remove trials where blinks or eye movements occluded stimulus presentation,
+	average across trials, calculate contra-ipsi wavefroms and output erpset and graphs
+* **DT_pruned_to_ERP_no_eye_channels.m**
+	* As DT_pruned_to_ERP, but for files where the eye channels inadvertently were not recorded.
 	
 ## Scripts for Generating Group Files
 * **DT_AUC.m**
