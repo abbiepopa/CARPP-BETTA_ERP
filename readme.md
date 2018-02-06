@@ -16,10 +16,16 @@
 	* Requires that the DT EEG file that has had artifacts removed (But not ICA components) and the file that has had
 	ICA pruning be in the present working directory.
 	* Processes the file to add event list, remove trials where blinks or eye movements occluded stimulus presentation,
-	average across trials, calculate contra-ipsi wavefroms and output erpset and graphs
+	average across trials, calculate contra-ipsi wavefroms and output erpset and graph
 * **DT_pruned_to_ERP_no_eye_channels.m**
 	* As DT_pruned_to_ERP, but for files where the eye channels inadvertently were not recorded.
-	
+* **eDT_Angry_pruned_to_ERP.m**
+	* Requires that the eDT_Angry EEG file that has had artifacts removed (but not ICA components) and the file that has had
+	ICA pruning be in the present working directory.
+	* Processes the file to add event list, remove trials where blinks or eye movements occluded stimulus presentation,
+	average across trials, calculate contra-ipsi wavefroms and output erpset and graphs for happy and angry lateral faces
+
+
 ## Scripts for Generating Group Files
 * **DT_AUC.m**
 	* This must be run after the list of all ERPs to be included has been generated
