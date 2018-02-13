@@ -103,3 +103,8 @@
 * ERPProcessing.m
 * DT_eDT_difference measures.R
 * DT_eDT_difference_within.R
+* ERP_PreMan_angryDT.m
+* ERP_PreMan_calmDT.m
+* ERP_PreMan_DT.m
+* ERP_PreMan_GNG.m
+* ERP_PreMan_happyDT.m
