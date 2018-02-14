@@ -12,6 +12,9 @@
 * **ERPPreprocessing1_rerefed_files.m**
 	* This file works the same as the ERPPreprocessing1 file but is for running on participants
 	where recording inadvertently rereferenced online
+* **ERPPreprocessing1_32chan_no_eyes.m**
+	* This file works the same as the ERPPreprocessing1 file but is for running on participants
+	where recording inadvertently did not include eye channels
 * **DT_pruned_to_ERP.m**
 	* Requires that the DT EEG file that has had artifacts removed (But not ICA components) and the file that has had
 	ICA pruning be in the present working directory.
