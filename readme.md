@@ -98,6 +98,10 @@
 	* takes as input 6 files, all long format N2 output from Matlab, 3 emotions (including cold) and two diagnostic groups
 	* Analyzes by comparing diagnostic groups and emotional condtions
 	* Outputs one summary sheet for each emotion (including cold)
+	
+## Other
+* **example_vhdr_load.m**
+	* I made this file to show how to load a vhdr from the command line (rather than the gui)
 
 ## Outdated Files
 * Completion Checklist.xlsx
