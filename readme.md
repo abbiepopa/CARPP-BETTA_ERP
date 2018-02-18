@@ -41,6 +41,13 @@
 	average across trials, calculate contra-ipsi wavefroms and output erpset and graphs for happy and angry lateral faces
 * **eDT_Happy_pruned_to_ERP_no_eye_channels.m**
 	* As eDT_Happy_pruned_to_ERP, but for files where the eye channels inadvertently were not recorded.
+* **GNG_pruned_to_ERP.m**
+	* Requires that the GNG EEG file that has had artifacts removed (But not ICA components) and the file that has had
+	ICA pruning be in the present working directory.
+	* Processes the file to add event list, remove trials where blinks or eye movements occluded stimulus presentation,
+	average across trials, calculate average anterior channel, and plot graphs with and without difference waves
+* **GNG_pruned_to_ERP_no_eye_channels.m**
+	* As GNG_pruned_to_ERP, but for files where the eye channels inadvertently were not recorded.
 
 ## Scripts for Generating Group Files
 * **DT_AUC.m**
