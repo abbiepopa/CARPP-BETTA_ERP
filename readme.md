@@ -55,14 +55,14 @@
 	* Currently, this script will output negative and positive area under the curve measures for N2PC
 	and Pd (respectively). The windows are 150-450 and 200-500 (respectively)
 	* One file is output for N2PC and one is output for PD, TD and clinical participants are run separately
-	* /Outdated!!/
+	* _Outdated!!_
 * **eDT_AUC.m**
 	* This must be run after the list of all ERPs to be included has been generated
 	* Currently, this script will output negative and positive area under the curve measures for N2PC
 	and Pd (respectively). The windows are 150-450 and 200-500 (respectively), for happy and angry distractors.
 	* One file is output for N2PC and one is output for PD, TD and clinical participants are run separately
 	* Each target emotion (angry, calm, happy) is also run separately
-	* /Outdated!!/
+	* _Outdated!!_
 * **GNG_negativeAUC.m**
 	* This must be run after the list of all ERPs to be included has been generated	
 	* Outputs one file with negative area under the curve from 150-450 ms for each file
@@ -115,6 +115,8 @@
 ## Other
 * **example_vhdr_load.m**
 	* I made this file to show how to load a vhdr from the command line (rather than the gui)
+* **hectomeetingfu_edt_alltarget.m**
+	* Analyzing the eDT without regard for which emotion is expressed
 
 ## Outdated Files
 * Completion Checklist.xlsx
