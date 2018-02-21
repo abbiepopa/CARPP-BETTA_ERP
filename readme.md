@@ -117,6 +117,9 @@
 	* I made this file to show how to load a vhdr from the command line (rather than the gui)
 * **hectomeetingfu_edt_alltarget.m**
 	* Analyzing the eDT without regard for which emotion is expressed
+* **JustPlotting.m**
+	* Useful if you have an ERPset (any task) and need to plot the standard graphs
+
 
 ## Outdated Files
 * Completion Checklist.xlsx
