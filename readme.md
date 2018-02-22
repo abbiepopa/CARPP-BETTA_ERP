@@ -119,9 +119,12 @@
 	* Analyzing the eDT without regard for which emotion is expressed
 * **JustPlotting.m**
 	* Useful if you have an ERPset (any task) and need to plot the standard graphs
+* **ERP Manual.docx**
+	* Manual Johanna and I worked on for running EEG collection. This almost certainly needs to be updated
 
 
 ## Outdated Files
+* artifacts.xlsx
 * Completion Checklist.xlsx
 * ERPPreprocessing2.m
 * ERPPre_Manual.m
@@ -134,3 +137,7 @@
 * ERP_PreMan_GNG.m
 * ERP_PreMan_happyDT.m
 * GA_Plots.m
+* leave_one_outGNG.m
+* preproc2_coldDT.m
+* preproc2_eDT.m
+* preproc2_GNG.m
