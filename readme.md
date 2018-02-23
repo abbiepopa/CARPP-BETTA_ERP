@@ -121,6 +121,8 @@
 	* Useful if you have an ERPset (any task) and need to plot the standard graphs
 * **ERP Manual.docx**
 	* Manual Johanna and I worked on for running EEG collection. This almost certainly needs to be updated
+* **Intern Visual Readme.docx**
+	* Detailed instructions (with visual aids) for early steps of preprocessing (preproc1) and manual artifact rejection to prep for ICA
 
 
 ## Outdated Files
