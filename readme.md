@@ -49,6 +49,11 @@
 * **GNG_pruned_to_ERP_no_eye_channels.m**
 	* As GNG_pruned_to_ERP, but for files where the eye channels inadvertently were not recorded.
 
+##Event Lists
+These are necessary for the individual processing scripts to run
+* **DT_quickanddirty_advancedelist.txt**
+	* event list for DT task
+
 ## Scripts for Generating Group Files
 * **DT_AUC.m**
 	* This must be run after the list of all ERPs to be included has been generated
