@@ -49,7 +49,7 @@
 * **GNG_pruned_to_ERP_no_eye_channels.m**
 	* As GNG_pruned_to_ERP, but for files where the eye channels inadvertently were not recorded.
 
-##Event Lists
+## Event Lists
 These are necessary for the individual processing scripts to run
 * **DT_quickanddirty_advancedelist.txt**
 	* event list for DT task
