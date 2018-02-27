@@ -49,6 +49,11 @@
 * **GNG_pruned_to_ERP_no_eye_channels.m**
 	* As GNG_pruned_to_ERP, but for files where the eye channels inadvertently were not recorded.
 
+## Channel Lists
+Necessary for some scripts to run when channels need to be adjusted or assigned
+* **dummy_eye_channels.txt**
+	* allows scripts to run when the participants eye channels accidentally were not recorded
+
 ## Event Lists
 These are necessary for the individual processing scripts to run
 * **DT_quickanddirty_advancedelist.txt**
