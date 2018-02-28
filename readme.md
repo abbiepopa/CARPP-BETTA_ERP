@@ -58,6 +58,8 @@ Necessary for some scripts to run when channels need to be adjusted or assigned
 These are necessary for the individual processing scripts to run
 * **DT_quickanddirty_advancedelist.txt**
 	* event list for DT task
+* **elist_adv_GNG.txt**
+	* event list for GNG task
 
 ## Scripts for Generating Group Files
 * **DT_AUC.m**
