@@ -59,7 +59,13 @@ These are necessary for the individual processing scripts to run
 * **DT_quickanddirty_advancedelist.txt**
 	* event list for DT task
 * **elist_adv_GNG.txt**
-	* event list for GNG task
+	* event list for GNG task, all versions
+* **elist_advanced_lister_angry_150820.txt**
+	* event list for the angry eDT blocks
+* **elist_advanced_lister_calm_150821.txt**
+	* event list for the calm eDT blocks
+* **elist_advanced_lister_happy_150820.txt**
+	* event list for the happy eDT blocks
 
 ## Scripts for Generating Group Files
 * **DT_AUC.m**
