@@ -163,3 +163,4 @@ These are necessary for the individual processing scripts to run
 * preproc2_coldDT.m
 * preproc2_eDT.m
 * preproc2_GNG.m
+* artifacts.pdf
