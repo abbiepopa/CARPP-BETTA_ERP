@@ -53,6 +53,8 @@
 Necessary for some scripts to run when channels need to be adjusted or assigned
 * **dummy_eye_channels.txt**
 	* allows scripts to run when the participants eye channels accidentally were not recorded
+* **fix_recording_refed_files.txt**
+	* allows scripts to run when electrodes were accidentally re-referenced during recording
 
 ## Event Lists
 These are necessary for the individual processing scripts to run
