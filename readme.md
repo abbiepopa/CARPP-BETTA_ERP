@@ -131,6 +131,8 @@ These are necessary for the individual processing scripts to run
 	* takes as input 6 files, all long format N2 output from Matlab, 3 emotions (including cold) and two diagnostic groups
 	* Analyzes by comparing diagnostic groups and emotional condtions
 	* Outputs one summary sheet for each emotion (including cold)
+* **artifacts.R**
+	* compares number of artifacts in each group and for each task based on a summary table
 	
 ## Other
 * **example_vhdr_load.m**
