@@ -89,7 +89,41 @@ These are necessary for the individual processing scripts to run
 	
 	
 ## Scripts for comparing ERP Outcome measures
+* **artifacts.R**
+	* compares number of artifacts in each group and for each task based on a summary table
+	
+## Other
+* **example_vhdr_load.m**
+	* I made this file to show how to load a vhdr from the command line (rather than the gui)
+* **hectomeetingfu_edt_alltarget.m**
+	* Analyzing the eDT without regard for which emotion is expressed
+* **JustPlotting.m**
+	* Useful if you have an ERPset (any task) and need to plot the standard graphs
+* **ERP Manual.docx**
+	* Manual Johanna and I worked on for running EEG collection. This almost certainly needs to be updated
+* **Intern Visual Readme.docx**
+	* Detailed instructions (with visual aids) for early steps of preprocessing (preproc1) and manual artifact rejection to prep for ICA
 
+
+## Outdated Files
+* artifacts.xlsx
+* Completion Checklist.xlsx
+* ERPPreprocessing2.m
+* ERPPre_Manual.m
+* ERPProcessing.m
+* DT_eDT_difference measures.R
+* DT_eDT_difference_within.R
+* ERP_PreMan_angryDT.m
+* ERP_PreMan_calmDT.m
+* ERP_PreMan_DT.m
+* ERP_PreMan_GNG.m
+* ERP_PreMan_happyDT.m
+* GA_Plots.m
+* leave_one_outGNG.m
+* preproc2_coldDT.m
+* preproc2_eDT.m
+* preproc2_GNG.m
+* artifacts.pdf
 * **ComparativeStats_DT.R** 
 	* takes as input 4 files that are output from the Matlab analysis of DT ERPS
 		* Long format N2PC file for participants with 22q
@@ -131,38 +165,3 @@ These are necessary for the individual processing scripts to run
 	* takes as input 6 files, all long format N2 output from Matlab, 3 emotions (including cold) and two diagnostic groups
 	* Analyzes by comparing diagnostic groups and emotional condtions
 	* Outputs one summary sheet for each emotion (including cold)
-* **artifacts.R**
-	* compares number of artifacts in each group and for each task based on a summary table
-	
-## Other
-* **example_vhdr_load.m**
-	* I made this file to show how to load a vhdr from the command line (rather than the gui)
-* **hectomeetingfu_edt_alltarget.m**
-	* Analyzing the eDT without regard for which emotion is expressed
-* **JustPlotting.m**
-	* Useful if you have an ERPset (any task) and need to plot the standard graphs
-* **ERP Manual.docx**
-	* Manual Johanna and I worked on for running EEG collection. This almost certainly needs to be updated
-* **Intern Visual Readme.docx**
-	* Detailed instructions (with visual aids) for early steps of preprocessing (preproc1) and manual artifact rejection to prep for ICA
-
-
-## Outdated Files
-* artifacts.xlsx
-* Completion Checklist.xlsx
-* ERPPreprocessing2.m
-* ERPPre_Manual.m
-* ERPProcessing.m
-* DT_eDT_difference measures.R
-* DT_eDT_difference_within.R
-* ERP_PreMan_angryDT.m
-* ERP_PreMan_calmDT.m
-* ERP_PreMan_DT.m
-* ERP_PreMan_GNG.m
-* ERP_PreMan_happyDT.m
-* GA_Plots.m
-* leave_one_outGNG.m
-* preproc2_coldDT.m
-* preproc2_eDT.m
-* preproc2_GNG.m
-* artifacts.pdf
