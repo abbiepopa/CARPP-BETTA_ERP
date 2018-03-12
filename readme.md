@@ -165,3 +165,8 @@ These are necessary for the individual processing scripts to run
 	* takes as input 6 files, all long format N2 output from Matlab, 3 emotions (including cold) and two diagnostic groups
 	* Analyzes by comparing diagnostic groups and emotional condtions
 	* Outputs one summary sheet for each emotion (including cold)
+* **DT_eDT.R**
+* **eDT_Angry_task_irrelevant.R**
+* **eDT_Calm_Angry_Distractors.R**
+* **eDT_Calm_Happy_Distractors.R**
+* **eDT_Happy_task_irrelevant.R**
