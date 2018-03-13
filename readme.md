@@ -170,3 +170,6 @@ These are necessary for the individual processing scripts to run
 * **eDT_Calm_Angry_Distractors.R**
 * **eDT_Calm_Happy_Distractors.R**
 * **eDT_Happy_task_irrelevant.R**
+* **ESCAP_SCID_SIPS_ERPS.R**
+* **Outlier_Removal_DT.R**
+* **Outlier_Removal_eDT_angry.R**
