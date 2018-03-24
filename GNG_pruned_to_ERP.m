@@ -1,6 +1,6 @@
 %% GNG event list
 %cfold = pwd;
-pid = '1016';
+pid = '1017';
 %current_folder = strcat(cfold, '/',pid);
 current_folder = pwd;
 task = 'GNG';
