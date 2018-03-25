@@ -1,0 +1,3 @@
+nb1 = (b2 + b4)/2 label Target-Match Contra          
+nb2 = (b1 + b3)/2 label Target-Match Ipsi            
+nb3 = -1 * (b5 + b6)/2 label Target-Match Contra-Ipsi
