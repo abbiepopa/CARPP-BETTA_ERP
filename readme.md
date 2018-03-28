@@ -56,6 +56,13 @@ Necessary for some scripts to run when channels need to be adjusted or assigned
 * **fix_recording_refed_files.txt**
 	* allows scripts to run when electrodes were accidentally re-referenced during recording
 
+## Bin Lists
+Necessary for re-binning the eDT by emotion congruence
+* **emo_congruent_eDT_angry.txt**
+* **emo_congruent_eDT_calm.txt**
+* **emo_congruent_eDT_happy.txt** 
+* **emo_incongruent_eDT_calm.txt**
+
 ## Event Lists
 These are necessary for the individual processing scripts to run
 * **DT_quickanddirty_advancedelist.txt**
