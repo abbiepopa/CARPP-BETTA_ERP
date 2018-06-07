@@ -1,9 +1,9 @@
 %% GNG event list
 %cfold = pwd;
-pid = '916';
+pid = '1020';
 %current_folder = strcat(cfold, '/',pid);
 current_folder = pwd;
-task = 'eGNG_Happy';
+task = 'eGNG_Angry';
 
 %eGNG_Angry
 %eGNG_Happy
